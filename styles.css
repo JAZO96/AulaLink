@@ -40,6 +40,52 @@ nav {
     display: flex;
 }
 
+.logo-menu {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    cursor: pointer;
+    display: none;
+}
+
+.menu-ico {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        position: relative;
+        z-index: 1001;
+    }
+
+.menu-ico span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #ffffff;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.menu-ico span:last-child {
+    margin-bottom: 0;
+}
+
+/* Animación de la barra de menú */
+.menu-ico.active span:nth-child(1) {
+    transform: rotate(50deg) translate(5px, 5px);
+}
+
+.menu-ico.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-ico.active span:nth-child(3) {
+    transform: rotate(-50deg) translate(5px, -5px);
+}
+
 .nav-links li {
     margin-left: 20px;
 }
@@ -61,7 +107,7 @@ nav {
     background-size: cover;
     color: white;
     text-align: center;
-    padding: 5rem 1rem;
+    padding: 5rem 5rem;
 }
 
 .hero-content h2 {
@@ -91,14 +137,14 @@ nav {
 .modulos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 0 2rem;
+    gap: 20px 20px;
+    padding: 2rem 2rem;
 }
 
 .modulo-card {
     background-color: white;
     border-radius: 8px;
-    padding: 2rem;
+    padding: 2rem 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
 }
@@ -135,10 +181,53 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .menu-ico {
+        display: block;
+    }
+
     .nav-links {
         display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 0;
+        box-shadow: 0 8px rgba(0, 0, 0, 0.2);
+        z-index: 999;
         /* Menú hamburguesa en móviles (necesita JS) */
     }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 0;
+        box-shadow: 0 8px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        text-align: center;
+    }
+
+    .nav-links a {
+        padding: 0;
+        display: block;
+    }
+
+    .nav-links li:not(:last-child) {
+        border-bottom: none;
+    }
+    
+
 }
 
 /* Auth Forms */
